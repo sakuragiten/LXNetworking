@@ -80,16 +80,15 @@ static LXHTTPSessionManager *lx_manager = nil;
     
     
     if (requestType == GET) {
-        [self.manager GET:url parameters:params success:success failure:failure];
-//        [self.manager GET:url parameters:params progress:progress success:success failure:failure];
+        [self.manager GET:url parameters:params progress:progress success:success failure:failure];
     } else if (requestType == POST) {
         if (block) {
-            [self.manager POST:url parameters:params constructingBodyWithBlock:block success:success failure:failure];
+            [self.manager POST:url parameters:params constructingBodyWithBlock:block progress:progress success:success failure:failure];
         } else {
-             [self.manager POST:url parameters:params success:success failure:failure];
+             [self.manager POST:url parameters:params progress:progress success:success failure:failure];
         }
        
-//        [self.manager POST:url parameters:params progress:progress success:success failure:failure];
+//
     }
 }
 

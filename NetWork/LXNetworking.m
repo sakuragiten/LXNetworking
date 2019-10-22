@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "LXHTTPSessionManager.h"
 #import "LXNetwokingConfigManager.h"
-
+#import "LXHttpCacheManager.h"
 
 #define HTTP_RETURNCODE_SUCCESS         200
 //IM 请求成功的返回状态码
@@ -75,29 +75,30 @@ static NSString* const apiVersion = @"2.2.0";
     }
 }
 
-//+ (void)requestGetFromCacheWithUrl:(NSString *)url params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)completionHandle
-//{
-//    NSString *cachePath = [[LXURLManager shareManager] absoluteUrlWithRequestUrl:url params:params];
-//    NSLog(@"%@", cachePath);
-//    id obj = [[LXHomeCacheManager sharedManager] getCacheDataDictForKey:cachePath];
-//    BOOL cacheExist = obj;
-//    if (cacheExist) {
-//        !completionHandle ? : completionHandle(YES, obj, nil);
-//    }
-//    [LXNetworking requestGetWithPath:url params:params completionHandle:^(BOOL success, id responseObject, NSString *errorMsg) {
-//        if (success) {
-//            [[LXHomeCacheManager sharedManager] cacheDataDict:responseObject forKey:cachePath];
-//            if (!cacheExist) {
-//                !completionHandle ? : completionHandle(success, responseObject, errorMsg);
-//            }
-//        } else if (cacheExist && kRelease) {
-//            //请求失败 如果有缓存 并且是在生产环境则不显示报错  否则就要抛出错误
-//        } else {
-//            //数据需要及时更新
-//            !completionHandle ? : completionHandle(success, responseObject, errorMsg);
-//        }
-//    }];
-//}
++ (void)requestGetFromCacheWithUrl:(NSString *)url params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)completionHandle
+{
+    NSString *cachePath = [[LXURLManager shareManager] absoluteUrlWithRequestUrl:url params:params];
+    NSLog(@"%@", cachePath);
+    id obj = [[LXHttpCacheManager sharedManager] getCacheDataDictForKey:cachePath];
+    BOOL cacheExist = obj;
+    if (cacheExist) {
+        !completionHandle ? : completionHandle(YES, obj, nil);
+    }
+    [LXNetworking requestGetWithPath:url params:params completionHandle:^(BOOL success, id responseObject, NSString *errorMsg) {
+        BOOL release = [LXURLManager shareManager].environment == 3;
+        if (success) {
+            [[LXHttpCacheManager sharedManager] cacheDataDict:responseObject forKey:cachePath];
+            if (!cacheExist) {
+                !completionHandle ? : completionHandle(success, responseObject, errorMsg);
+            }
+        } else if (cacheExist && release) {
+            //请求失败 如果有缓存 并且是在生产环境则不显示报错  否则就要抛出错误
+        } else {
+            //数据需要及时更新
+            !completionHandle ? : completionHandle(success, responseObject, errorMsg);
+        }
+    }];
+}
 
 
 

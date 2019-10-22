@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 
 
-typedef void(^LXRequestSessionHandle)(BOOL success, id responseObj, NSError *error);
+typedef void(^LXRequestSessionHandle)(BOOL success, id _Nullable responseObj, NSError * _Nullable error);
 
 typedef NS_ENUM(NSUInteger, LXHTTPRequestType){
     GET = 1,

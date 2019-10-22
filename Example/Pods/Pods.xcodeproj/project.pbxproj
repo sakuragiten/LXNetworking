@@ -44,6 +44,8 @@
 		4B13D1FA235E90D900DE8638 /* LXNetwokingConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B13D1F2235E90D900DE8638 /* LXNetwokingConfigManager.m */; };
 		4B13D1FB235E90D900DE8638 /* LXNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B13D1F3235E90D900DE8638 /* LXNetworking.m */; };
 		4B13D1FC235E90D900DE8638 /* LXURLManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B13D1F4235E90D900DE8638 /* LXURLManager.h */; };
+		4B546D61235F02F0001BD561 /* LXHttpCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546D5F235F02EF001BD561 /* LXHttpCacheManager.m */; };
+		4B546D62235F02F0001BD561 /* LXHttpCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B546D60235F02EF001BD561 /* LXHttpCacheManager.h */; };
 		57DA258B86A7FE4E593AD7DA799AEDAC /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 690E5F504CD85C5DE34D3B449B27958B /* AFNetworking-dummy.m */; };
 		5F5CDAEAC2C6BA022C86A802702BA352 /* Pods-LXNetworking_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 706605D06BF68940BA5A353BD716B177 /* Pods-LXNetworking_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62019F853E38341F8208730EA5D32B2C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21531557EAD3F7276D196B4EC91EC015 /* CoreGraphics.framework */; };
@@ -136,6 +138,8 @@
 		4B13D1F3235E90D900DE8638 /* LXNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXNetworking.m; sourceTree = "<group>"; };
 		4B13D1F4235E90D900DE8638 /* LXURLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXURLManager.h; sourceTree = "<group>"; };
 		4B352298920387F5DDBF7E2A9CE4E2C1 /* Pods-LXNetworking_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LXNetworking_Tests-Info.plist"; sourceTree = "<group>"; };
+		4B546D5F235F02EF001BD561 /* LXHttpCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXHttpCacheManager.m; sourceTree = "<group>"; };
+		4B546D60235F02EF001BD561 /* LXHttpCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHttpCacheManager.h; sourceTree = "<group>"; };
 		521B567257E76C90064BB64CC5BF9868 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5658450B390498551F491488B4C1BF0C /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		5A8FA6658732BEA1D9E3D3F30406B5A1 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
@@ -279,6 +283,15 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		4B546D5E235F02EF001BD561 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				4B546D60235F02EF001BD561 /* LXHttpCacheManager.h */,
+				4B546D5F235F02EF001BD561 /* LXHttpCacheManager.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		51F985147C269360498F4D666C3586F1 /* NSURLSession */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +307,7 @@
 		62C4E6F554CA7B8AE2B485A8D5438B9C /* LXNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				4B546D5E235F02EF001BD561 /* Cache */,
 				4B13D1EC235E90D900DE8638 /* NetWork */,
 				EE902E8215797D72C416284251AD8D38 /* Pod */,
 				CCFD25F37BD2CD566F33B8D774DAA96F /* Support Files */,
@@ -481,6 +495,7 @@
 				4B13D1F7235E90D900DE8638 /* LXNetworking.h in Headers */,
 				4B13D1F6235E90D900DE8638 /* LXHTTPSessionManager.h in Headers */,
 				4B13D1FC235E90D900DE8638 /* LXURLManager.h in Headers */,
+				4B546D62235F02F0001BD561 /* LXHttpCacheManager.h in Headers */,
 				979350558BC6C79A110755018C81A65D /* Pods-LXNetworking_Example-umbrella.h in Headers */,
 				4B13D1F5235E90D900DE8638 /* LXNetwokingConfigManager.h in Headers */,
 			);
@@ -635,6 +650,7 @@
 				C68667CF91E578882CE98C10D0900CF9 /* Pods-LXNetworking_Example-dummy.m in Sources */,
 				4B13D1F9235E90D900DE8638 /* LXHTTPSessionManager.m in Sources */,
 				4B13D1FB235E90D900DE8638 /* LXNetworking.m in Sources */,
+				4B546D61235F02F0001BD561 /* LXHttpCacheManager.m in Sources */,
 				4B13D1F8235E90D900DE8638 /* LXURLManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

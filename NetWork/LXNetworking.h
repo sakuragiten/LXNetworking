@@ -67,13 +67,13 @@ typedef NS_ENUM(NSUInteger, LXNetWorkingDomainType){
 /**
  GET 请求 优先拿缓存数据
 
- @param path 请求的url
+ @param url 请求的url
  @param params 请求参数
  @param completionHandle 请求完成的回调
  */
-//+ (void)requestGetFromCacheWithUrl:(NSString *)url
-//                            params:(NSDictionary *)params
-//                  completionHandle:(LXRequestCompletionHandle)completionHandle;
++ (void)requestGetFromCacheWithUrl:(NSString *)url
+                            params:(NSDictionary *)params
+                  completionHandle:(LXRequestCompletionHandle)completionHandle;
 
 
 
