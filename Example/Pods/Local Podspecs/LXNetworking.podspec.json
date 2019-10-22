@@ -1,0 +1,27 @@
+{
+  "name": "LXNetworking",
+  "version": "0.1.0",
+  "summary": "A short description of LXNetworking.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/387970107@qq.com/LXNetworking",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "387970107@qq.com": "387970107@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/387970107@qq.com/LXNetworking.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "LXNetworking/Classes/**/*",
+  "dependencies": {
+    "AFNetworking": [
+
+    ]
+  }
+}
