@@ -36,16 +36,16 @@
 		3DBAE449A51ED959C72DFF3D97D038D8 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A8FA6658732BEA1D9E3D3F30406B5A1 /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E1DB56D2D0739FA8AC817E24EADA8D4 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA824FACBBA5BE51DDD2ABB499950E6 /* UIImageView+AFNetworking.m */; };
 		405AE0FC5C80B81822A041EF94047FFF /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BF6F30931BD32517932E6D9B06669EC /* AFImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4B13D1F5235E90D900DE8638 /* LXNetwokingConfigManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B13D1ED235E90D900DE8638 /* LXNetwokingConfigManager.h */; };
-		4B13D1F6235E90D900DE8638 /* LXHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B13D1EE235E90D900DE8638 /* LXHTTPSessionManager.h */; };
-		4B13D1F7235E90D900DE8638 /* LXNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B13D1EF235E90D900DE8638 /* LXNetworking.h */; };
-		4B13D1F8235E90D900DE8638 /* LXURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B13D1F0235E90D900DE8638 /* LXURLManager.m */; };
-		4B13D1F9235E90D900DE8638 /* LXHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B13D1F1235E90D900DE8638 /* LXHTTPSessionManager.m */; };
-		4B13D1FA235E90D900DE8638 /* LXNetwokingConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B13D1F2235E90D900DE8638 /* LXNetwokingConfigManager.m */; };
-		4B13D1FB235E90D900DE8638 /* LXNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B13D1F3235E90D900DE8638 /* LXNetworking.m */; };
-		4B13D1FC235E90D900DE8638 /* LXURLManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B13D1F4235E90D900DE8638 /* LXURLManager.h */; };
-		4B546D61235F02F0001BD561 /* LXHttpCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546D5F235F02EF001BD561 /* LXHttpCacheManager.m */; };
-		4B546D62235F02F0001BD561 /* LXHttpCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B546D60235F02EF001BD561 /* LXHttpCacheManager.h */; };
+		4B546D6F23602AF2001BD561 /* LXNetwokingConfigManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B546D6423602AF2001BD561 /* LXNetwokingConfigManager.h */; };
+		4B546D7023602AF2001BD561 /* LXHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B546D6523602AF2001BD561 /* LXHTTPSessionManager.h */; };
+		4B546D7123602AF2001BD561 /* LXNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B546D6623602AF2001BD561 /* LXNetworking.h */; };
+		4B546D7223602AF2001BD561 /* LXURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546D6723602AF2001BD561 /* LXURLManager.m */; };
+		4B546D7323602AF2001BD561 /* LXHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546D6823602AF2001BD561 /* LXHTTPSessionManager.m */; };
+		4B546D7423602AF2001BD561 /* LXNetwokingConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546D6923602AF2001BD561 /* LXNetwokingConfigManager.m */; };
+		4B546D7523602AF2001BD561 /* LXNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546D6A23602AF2001BD561 /* LXNetworking.m */; };
+		4B546D7623602AF2001BD561 /* LXURLManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B546D6B23602AF2001BD561 /* LXURLManager.h */; };
+		4B546D7723602AF2001BD561 /* LXHttpCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B546D6D23602AF2001BD561 /* LXHttpCacheManager.h */; };
+		4B546D7823602AF2001BD561 /* LXHttpCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546D6E23602AF2001BD561 /* LXHttpCacheManager.m */; };
 		57DA258B86A7FE4E593AD7DA799AEDAC /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 690E5F504CD85C5DE34D3B449B27958B /* AFNetworking-dummy.m */; };
 		5F5CDAEAC2C6BA022C86A802702BA352 /* Pods-LXNetworking_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 706605D06BF68940BA5A353BD716B177 /* Pods-LXNetworking_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62019F853E38341F8208730EA5D32B2C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21531557EAD3F7276D196B4EC91EC015 /* CoreGraphics.framework */; };
@@ -129,17 +129,17 @@
 		409E582AC9F6B99F408D8C80B931B43B /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		45228F61BCD61B5D04F7F0DC3CAE54DE /* Pods-LXNetworking_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LXNetworking_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		46868644BD8311D8AAF9EAF6A39A6040 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
-		4B13D1ED235E90D900DE8638 /* LXNetwokingConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXNetwokingConfigManager.h; sourceTree = "<group>"; };
-		4B13D1EE235E90D900DE8638 /* LXHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHTTPSessionManager.h; sourceTree = "<group>"; };
-		4B13D1EF235E90D900DE8638 /* LXNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXNetworking.h; sourceTree = "<group>"; };
-		4B13D1F0235E90D900DE8638 /* LXURLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXURLManager.m; sourceTree = "<group>"; };
-		4B13D1F1235E90D900DE8638 /* LXHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXHTTPSessionManager.m; sourceTree = "<group>"; };
-		4B13D1F2235E90D900DE8638 /* LXNetwokingConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXNetwokingConfigManager.m; sourceTree = "<group>"; };
-		4B13D1F3235E90D900DE8638 /* LXNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXNetworking.m; sourceTree = "<group>"; };
-		4B13D1F4235E90D900DE8638 /* LXURLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXURLManager.h; sourceTree = "<group>"; };
 		4B352298920387F5DDBF7E2A9CE4E2C1 /* Pods-LXNetworking_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LXNetworking_Tests-Info.plist"; sourceTree = "<group>"; };
-		4B546D5F235F02EF001BD561 /* LXHttpCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXHttpCacheManager.m; sourceTree = "<group>"; };
-		4B546D60235F02EF001BD561 /* LXHttpCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHttpCacheManager.h; sourceTree = "<group>"; };
+		4B546D6423602AF2001BD561 /* LXNetwokingConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXNetwokingConfigManager.h; sourceTree = "<group>"; };
+		4B546D6523602AF2001BD561 /* LXHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHTTPSessionManager.h; sourceTree = "<group>"; };
+		4B546D6623602AF2001BD561 /* LXNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXNetworking.h; sourceTree = "<group>"; };
+		4B546D6723602AF2001BD561 /* LXURLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXURLManager.m; sourceTree = "<group>"; };
+		4B546D6823602AF2001BD561 /* LXHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXHTTPSessionManager.m; sourceTree = "<group>"; };
+		4B546D6923602AF2001BD561 /* LXNetwokingConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXNetwokingConfigManager.m; sourceTree = "<group>"; };
+		4B546D6A23602AF2001BD561 /* LXNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXNetworking.m; sourceTree = "<group>"; };
+		4B546D6B23602AF2001BD561 /* LXURLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXURLManager.h; sourceTree = "<group>"; };
+		4B546D6D23602AF2001BD561 /* LXHttpCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHttpCacheManager.h; sourceTree = "<group>"; };
+		4B546D6E23602AF2001BD561 /* LXHttpCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXHttpCacheManager.m; sourceTree = "<group>"; };
 		521B567257E76C90064BB64CC5BF9868 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5658450B390498551F491488B4C1BF0C /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		5A8FA6658732BEA1D9E3D3F30406B5A1 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
@@ -268,28 +268,30 @@
 			name = Security;
 			sourceTree = "<group>";
 		};
-		4B13D1EC235E90D900DE8638 /* NetWork */ = {
+		4B546D6323602AF2001BD561 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
-				4B13D1EF235E90D900DE8638 /* LXNetworking.h */,
-				4B13D1F3235E90D900DE8638 /* LXNetworking.m */,
-				4B13D1F4235E90D900DE8638 /* LXURLManager.h */,
-				4B13D1F0235E90D900DE8638 /* LXURLManager.m */,
-				4B13D1EE235E90D900DE8638 /* LXHTTPSessionManager.h */,
-				4B13D1F1235E90D900DE8638 /* LXHTTPSessionManager.m */,
-				4B13D1ED235E90D900DE8638 /* LXNetwokingConfigManager.h */,
-				4B13D1F2235E90D900DE8638 /* LXNetwokingConfigManager.m */,
+				4B546D6423602AF2001BD561 /* LXNetwokingConfigManager.h */,
+				4B546D6523602AF2001BD561 /* LXHTTPSessionManager.h */,
+				4B546D6623602AF2001BD561 /* LXNetworking.h */,
+				4B546D6723602AF2001BD561 /* LXURLManager.m */,
+				4B546D6823602AF2001BD561 /* LXHTTPSessionManager.m */,
+				4B546D6923602AF2001BD561 /* LXNetwokingConfigManager.m */,
+				4B546D6A23602AF2001BD561 /* LXNetworking.m */,
+				4B546D6B23602AF2001BD561 /* LXURLManager.h */,
 			);
-			path = NetWork;
+			name = NetWork;
+			path = LXNetworking/Classes/NetWork;
 			sourceTree = "<group>";
 		};
-		4B546D5E235F02EF001BD561 /* Cache */ = {
+		4B546D6C23602AF2001BD561 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				4B546D60235F02EF001BD561 /* LXHttpCacheManager.h */,
-				4B546D5F235F02EF001BD561 /* LXHttpCacheManager.m */,
+				4B546D6D23602AF2001BD561 /* LXHttpCacheManager.h */,
+				4B546D6E23602AF2001BD561 /* LXHttpCacheManager.m */,
 			);
-			path = Cache;
+			name = Cache;
+			path = LXNetworking/Classes/Cache;
 			sourceTree = "<group>";
 		};
 		51F985147C269360498F4D666C3586F1 /* NSURLSession */ = {
@@ -307,8 +309,8 @@
 		62C4E6F554CA7B8AE2B485A8D5438B9C /* LXNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				4B546D5E235F02EF001BD561 /* Cache */,
-				4B13D1EC235E90D900DE8638 /* NetWork */,
+				4B546D6C23602AF2001BD561 /* Cache */,
+				4B546D6323602AF2001BD561 /* NetWork */,
 				EE902E8215797D72C416284251AD8D38 /* Pod */,
 				CCFD25F37BD2CD566F33B8D774DAA96F /* Support Files */,
 			);
@@ -492,12 +494,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B13D1F7235E90D900DE8638 /* LXNetworking.h in Headers */,
-				4B13D1F6235E90D900DE8638 /* LXHTTPSessionManager.h in Headers */,
-				4B13D1FC235E90D900DE8638 /* LXURLManager.h in Headers */,
-				4B546D62235F02F0001BD561 /* LXHttpCacheManager.h in Headers */,
+				4B546D7123602AF2001BD561 /* LXNetworking.h in Headers */,
+				4B546D7023602AF2001BD561 /* LXHTTPSessionManager.h in Headers */,
+				4B546D7623602AF2001BD561 /* LXURLManager.h in Headers */,
+				4B546D7723602AF2001BD561 /* LXHttpCacheManager.h in Headers */,
 				979350558BC6C79A110755018C81A65D /* Pods-LXNetworking_Example-umbrella.h in Headers */,
-				4B13D1F5235E90D900DE8638 /* LXNetwokingConfigManager.h in Headers */,
+				4B546D6F23602AF2001BD561 /* LXNetwokingConfigManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,12 +648,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B13D1FA235E90D900DE8638 /* LXNetwokingConfigManager.m in Sources */,
+				4B546D7423602AF2001BD561 /* LXNetwokingConfigManager.m in Sources */,
 				C68667CF91E578882CE98C10D0900CF9 /* Pods-LXNetworking_Example-dummy.m in Sources */,
-				4B13D1F9235E90D900DE8638 /* LXHTTPSessionManager.m in Sources */,
-				4B13D1FB235E90D900DE8638 /* LXNetworking.m in Sources */,
-				4B546D61235F02F0001BD561 /* LXHttpCacheManager.m in Sources */,
-				4B13D1F8235E90D900DE8638 /* LXURLManager.m in Sources */,
+				4B546D7323602AF2001BD561 /* LXHTTPSessionManager.m in Sources */,
+				4B546D7523602AF2001BD561 /* LXNetworking.m in Sources */,
+				4B546D7823602AF2001BD561 /* LXHttpCacheManager.m in Sources */,
+				4B546D7223602AF2001BD561 /* LXURLManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
