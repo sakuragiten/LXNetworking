@@ -7,7 +7,7 @@
 //
 
 #import "LXNetworking.h"
-#import <AFNetworking/AFNetworking.h>
+
 #import "LXHTTPSessionManager.h"
 #import "LXNetwokingConfigManager.h"
 #import "LXHttpCacheManager.h"

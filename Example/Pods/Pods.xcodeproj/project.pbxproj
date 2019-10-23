@@ -271,14 +271,14 @@
 		4B546D6323602AF2001BD561 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
-				4B546D6423602AF2001BD561 /* LXNetwokingConfigManager.h */,
 				4B546D6523602AF2001BD561 /* LXHTTPSessionManager.h */,
-				4B546D6623602AF2001BD561 /* LXNetworking.h */,
-				4B546D6723602AF2001BD561 /* LXURLManager.m */,
 				4B546D6823602AF2001BD561 /* LXHTTPSessionManager.m */,
+				4B546D6423602AF2001BD561 /* LXNetwokingConfigManager.h */,
 				4B546D6923602AF2001BD561 /* LXNetwokingConfigManager.m */,
+				4B546D6623602AF2001BD561 /* LXNetworking.h */,
 				4B546D6A23602AF2001BD561 /* LXNetworking.m */,
 				4B546D6B23602AF2001BD561 /* LXURLManager.h */,
+				4B546D6723602AF2001BD561 /* LXURLManager.m */,
 			);
 			name = NetWork;
 			path = LXNetworking/Classes/NetWork;

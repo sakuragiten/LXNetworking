@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 
 
 typedef void(^LXRequestSessionHandle)(BOOL success, id _Nullable responseObj, NSError * _Nullable error);
