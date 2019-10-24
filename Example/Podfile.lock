@@ -14,14 +14,14 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - LXNetworking (0.1.0):
+  - LXNetworking (0.1.3):
     - AFNetworking
 
 DEPENDENCIES:
   - LXNetworking (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
 
 EXTERNAL SOURCES:
@@ -30,8 +30,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  LXNetworking: 6ddf17a2addf4fbdaa098480b5786512640e4726
+  LXNetworking: 252f7635fa110c8e5b3375e9a87d89c9953d1ade
 
 PODFILE CHECKSUM: ab63bc4bae088664fe8542037a16f5e2620071d4
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

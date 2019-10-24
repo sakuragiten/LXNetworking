@@ -14,7 +14,6 @@
 @property(nonatomic, strong) AFHTTPSessionManager *manager;
 
 
-
 @end
 
 @implementation LXHTTPSessionManager
@@ -25,14 +24,13 @@ static LXHTTPSessionManager *lx_manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         lx_manager = [[self alloc] init];
-        
         AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@""]];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         
        [manager.requestSerializer setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
         
-        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:[NSArray arrayWithObjects:@"text/plain",@"text/html",@"text/json",@"application/json", nil]];
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:[NSArray arrayWithObjects:@"text/plain",@"text/html",@"text/json", @"multipart/form-data", @"application/json", nil]];
         
         lx_manager.manager = manager;
         lx_manager.networkStatus = 2;   //默认4G

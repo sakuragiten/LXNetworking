@@ -93,6 +93,19 @@ typedef NS_ENUM(NSUInteger, LXNetWorkingDomainType){
 
 
 /**
+ POST请求 form-data 的形式
+ 
+ @param path 请求的url
+ @param params 请求参数
+ @param handle 请求完成的回调
+ */
++ (void)requestFormWithPath:(NSString *)url
+                    params:(NSDictionary *)params
+          completionHandle:(LXRequestCompletionHandle)handle;
+
+
+
+/**
  Post 请求
  
  @param path 请求的url
@@ -121,6 +134,7 @@ typedef NS_ENUM(NSUInteger, LXNetWorkingDomainType){
                      params:(NSDictionary *)params
                   dataArray:(NSArray *)dataArray
            completionHandle:(LXRequestCompletionHandle)handle;
+
 
 
 

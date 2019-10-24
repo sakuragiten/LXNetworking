@@ -7,12 +7,19 @@
 //
 
 #import "LXAppDelegate.h"
+#import <LXNetworking/LXNetworking.h>
 
 @implementation LXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    //初始化楼讯网络请求框架
+    
+    [LXNetworking setupAndConfigurationForNewWorking];
+    
+    
     return YES;
 }
 

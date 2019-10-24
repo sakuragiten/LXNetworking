@@ -150,7 +150,29 @@ static NSString* const apiVersion = @"2.2.0";
     [self requestWithPath:path domainType:type requestType:POST params:params constructingBody:nil completionHandle:handle];
 }
 
-+ (void)requestWithPath:(NSString *)path domainType:(LXNetWorkingDomainType)type requestType:(LXHTTPRequestType)requestType params:(NSDictionary *)params constructingBody:(void(^)(id<AFMultipartFormData> formData))block completionHandle:(LXRequestCompletionHandle)handle
+
++ (void)requestFormWithPath:(NSString *)url params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
+{
+    LXNetWorkingDomainType domainType = LXNetWorkingDomainLouXun;
+    if ([url containsString:xf_domain]) {
+        domainType = LXNetWorkingDomainQF;
+    }
+    [self requestWithPath:url domainType:domainType requestType:POST params:nil constructingBody:^(id<AFMultipartFormData> formData) {
+        for (NSString *key in params.allKeys) {
+            // 循环拿到所有参数进行拼接
+            [formData appendPartWithFormData:[params[key] dataUsingEncoding:NSUTF8StringEncoding] name:key];
+        }
+    } completionHandle:handle];
+    
+}
+
+
+
++ (void)requestWithPath:(NSString *)path
+             domainType:(LXNetWorkingDomainType)type
+            requestType:(LXHTTPRequestType)requestType
+                 params:(NSDictionary *)params
+       constructingBody:(void(^)(id<AFMultipartFormData> formData))block completionHandle:(LXRequestCompletionHandle)handle
 {
     [[LXHTTPSessionManager shareManager] settingSessionManager:^(AFHTTPSessionManager * _Nonnull manager) {
         

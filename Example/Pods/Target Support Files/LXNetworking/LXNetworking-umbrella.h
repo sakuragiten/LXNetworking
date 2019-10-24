@@ -10,6 +10,11 @@
 #endif
 #endif
 
+#import "LXHttpCacheManager.h"
+#import "LXHTTPSessionManager.h"
+#import "LXNetwokingConfigManager.h"
+#import "LXNetworking.h"
+#import "LXURLManager.h"
 
 FOUNDATION_EXPORT double LXNetworkingVersionNumber;
 FOUNDATION_EXPORT const unsigned char LXNetworkingVersionString[];
