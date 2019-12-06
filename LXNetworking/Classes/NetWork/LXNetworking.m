@@ -104,7 +104,7 @@ static NSString* const apiVersion = @"2.2.0";
 + (void)requestGetWithPath:(NSString *)path params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
 {
     LXNetWorkingDomainType domainType = LXNetWorkingDomainLouXun;
-    if ([path containsString:xf_domain]) {
+    if (![path containsString:lx_domain]) {
         domainType = LXNetWorkingDomainQF;
     }
     
@@ -125,7 +125,7 @@ static NSString* const apiVersion = @"2.2.0";
 + (void)requestPostWithPath:(NSString *)path params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
 {
     LXNetWorkingDomainType domainType = LXNetWorkingDomainLouXun;
-    if ([path containsString:xf_domain]) {
+    if (![path containsString:lx_domain]) {
         domainType = LXNetWorkingDomainQF;
     }
     [self requestPostWithPath:path domainType:domainType params:params completionHandle:handle];
@@ -134,7 +134,7 @@ static NSString* const apiVersion = @"2.2.0";
 + (void)requestPostWithPath:(NSString *)path params:(NSDictionary *)params dataArray:(NSArray *)dataArray completionHandle:(LXRequestCompletionHandle)handle
 {
     LXNetWorkingDomainType domainType = LXNetWorkingDomainLouXun;
-    if ([path containsString:xf_domain]) {
+    if (![path containsString:lx_domain]) {
         domainType = LXNetWorkingDomainQF;
     }
     [self requestWithPath:path domainType:domainType requestType:POST params:params constructingBody:^(id<AFMultipartFormData> formData) {
@@ -154,7 +154,7 @@ static NSString* const apiVersion = @"2.2.0";
 + (void)requestFormWithPath:(NSString *)url params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
 {
     LXNetWorkingDomainType domainType = LXNetWorkingDomainLouXun;
-    if ([url containsString:xf_domain]) {
+    if (![url containsString:lx_domain]) {
         domainType = LXNetWorkingDomainQF;
     }
     [self requestWithPath:url domainType:domainType requestType:POST params:nil constructingBody:^(id<AFMultipartFormData> formData) {
