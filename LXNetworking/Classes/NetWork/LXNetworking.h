@@ -76,6 +76,17 @@ typedef NS_ENUM(NSUInteger, LXNetWorkingDomainType){
                   completionHandle:(LXRequestCompletionHandle)completionHandle;
 
 
+/**
+GET 请求 先从缓存拿数据 拿到缓存数据之后 有新数据返回 立马更新
+
+@param url 请求的url
+@param params 请求参数
+@param completionHandle 请求完成的回调
+*/
++ (void)requestGetByCacheAndServerWithUrl:(NSString *)url
+                                   params:params
+                         completionHandle:(LXRequestCompletionHandle)completionHandle;
+
 
 
 /**
@@ -95,7 +106,7 @@ typedef NS_ENUM(NSUInteger, LXNetWorkingDomainType){
 /**
  POST请求 form-data 的形式
  
- @param path 请求的url
+ @param url 请求的url
  @param params 请求参数
  @param handle 请求完成的回调
  */

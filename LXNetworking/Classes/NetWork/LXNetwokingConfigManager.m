@@ -76,6 +76,16 @@ static LXNetwokingConfigManager *_manager = nil;
     if ([deviceModel isEqualToString:@"iPhone10,3"])   return @"iPhone_X";
     if ([deviceModel isEqualToString:@"iPhone10,6"])   return @"iPhone_X";
     
+    // iPhone_XR | iPhone_XS | iPhone_XS_Max
+    if ([deviceModel isEqualToString:@"iPhone11,8"])     return @"iPhone_XR";
+    if ([deviceModel isEqualToString:@"iPhone11,2"])     return @"iPhone_XS";
+    if ([deviceModel isEqualToString:@"iPhone11,4"])     return @"iPhone_XS_Max_China";
+    if ([deviceModel isEqualToString:@"iPhone11,6"])     return @"iPhone_XS_Max";
+    // iPhone 11 | iPhone 11 Pro | iPhone 11 Pro Max
+    if ([deviceModel isEqualToString:@"iPhone12,1"])     return @"iPhone_11";
+    if ([deviceModel isEqualToString:@"iPhone12,3"])     return @"iPhone_11_Pro";
+    if ([deviceModel isEqualToString:@"iPhone12,5"])     return @"iPhone_11_Pro_Max";   
+    
     
     if ([deviceModel isEqualToString:@"i386"])         return @"Simulator";
     if ([deviceModel isEqualToString:@"x86_64"])       return @"Simulator";

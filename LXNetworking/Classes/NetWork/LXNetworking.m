@@ -36,9 +36,6 @@ static NSString* const apiVersion = @"2.2.0";
         
         AFHTTPRequestSerializer *serializer = manager.requestSerializer;
         
-        NSString *user_agent = [NSString stringWithFormat:@"LXFindHouse%@:IOS%@:%@", config.appVersion, config.systemVersion, config.device];
-        
-        [serializer setValue:user_agent forHTTPHeaderField:@"User-Agent"];
         [serializer setValue:config.appVersion forHTTPHeaderField:@"version"];
         [serializer setValue:apiVersion forHTTPHeaderField:@"apiVersion"];  //???
         [serializer setValue:config.deviceId forHTTPHeaderField:@"deviceId"];
@@ -76,6 +73,18 @@ static NSString* const apiVersion = @"2.2.0";
 
 + (void)requestGetFromCacheWithUrl:(NSString *)url params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)completionHandle
 {
+   [self requestGetFromCacheWithUrl:url params:params update:NO completionHandle:completionHandle];
+}
+
+//请求数据 如果有缓存 先返回缓存数据 然后再返回请求成功的数据
+
++ (void)requestGetByCacheAndServerWithUrl:(NSString *)url params:params completionHandle:(LXRequestCompletionHandle)completionHandle
+{
+    [self requestGetFromCacheWithUrl:url params:params update:YES completionHandle:completionHandle];
+}
+
++ (void)requestGetFromCacheWithUrl:(NSString *)url params:(NSDictionary *)params update:(BOOL)update completionHandle:(LXRequestCompletionHandle)completionHandle
+{
     NSString *cachePath = [[LXURLManager shareManager] absoluteUrlWithRequestUrl:url params:params];
     NSLog(@"%@", cachePath);
     id obj = [[LXHttpCacheManager sharedManager] getCacheDataDictForKey:cachePath];
@@ -87,17 +96,19 @@ static NSString* const apiVersion = @"2.2.0";
         BOOL release = [LXURLManager shareManager].environment == 3;
         if (success) {
             [[LXHttpCacheManager sharedManager] cacheDataDict:responseObject forKey:cachePath];
-            if (!cacheExist) {
+            //数据需要及时更新
+            if (!cacheExist || update) {
                 !completionHandle ? : completionHandle(success, responseObject, errorMsg);
             }
         } else if (cacheExist && release) {
             //请求失败 如果有缓存 并且是在生产环境则不显示报错  否则就要抛出错误
-        } else {
+         } else {
             //数据需要及时更新
             !completionHandle ? : completionHandle(success, responseObject, errorMsg);
         }
     }];
 }
+
 
 
 
