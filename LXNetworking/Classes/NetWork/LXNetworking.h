@@ -102,6 +102,17 @@ GET 请求 先从缓存拿数据 拿到缓存数据之后 有新数据返回 立
 
 
 
+/**
+ Post 请求 JsonText
+ 
+ @param url 请求的url
+ @param params 请求参数
+ @param handle 请求完成的回调
+ */
++ (void)requestJsonPostWithUrl:(NSString *)url
+                    params:(NSDictionary *)params
+          completionHandle:(LXRequestCompletionHandle)handle;
+
 
 /**
  POST请求 form-data 的形式

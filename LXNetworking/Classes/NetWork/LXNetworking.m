@@ -132,6 +132,12 @@ static NSString* const apiVersion = @"2.2.0";
 }
 
 
++ (void)requestJsonPostWithUrl:(NSString *)url params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
+{
+    NSString *jsonUrl = [[LXURLManager shareManager] absoluteUrlWithRequestUrl:url params:params];
+    [self requestPostWithPath:jsonUrl params:params completionHandle:handle];
+}
+
 
 + (void)requestPostWithPath:(NSString *)path params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
 {
