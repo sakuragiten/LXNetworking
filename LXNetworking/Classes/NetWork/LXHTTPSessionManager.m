@@ -43,17 +43,14 @@ static LXHTTPSessionManager *lx_manager = nil;
     return lx_manager;
 }
 
-
 - (void)startNewworkMotoring
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:) name:@"networkStatus" object:nil];
+    __weak typeof(self) weakSelf = self;
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        weakSelf.networkStatus = status;
+    }];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
-
-- (void)networkChanged:(NSNotification *)notification
-{
-    self.networkStatus = [notification.object integerValue];
-}
-
 
 - (void)settingSessionManager:(void (^)(AFHTTPSessionManager * _Nonnull))handle
 {
