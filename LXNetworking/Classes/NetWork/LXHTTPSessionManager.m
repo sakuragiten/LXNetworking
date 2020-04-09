@@ -28,8 +28,8 @@ static LXHTTPSessionManager *lx_manager = nil;
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         
-       [manager.requestSerializer setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-        
+        [manager.requestSerializer setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:[NSArray arrayWithObjects:@"text/plain",@"text/html",@"text/json", @"multipart/form-data", @"application/json", nil]];
         
         lx_manager.manager = manager;
@@ -43,19 +43,17 @@ static LXHTTPSessionManager *lx_manager = nil;
     return lx_manager;
 }
 
-
 - (void)startNewworkMotoring
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:) name:@"networkStatus" object:nil];
-    NSString *networkString = [self networkString];
-    [[LXHTTPSessionManager shareManager].manager.requestSerializer setValue:networkString forHTTPHeaderField:@"clientNet"];
+    __weak typeof(self) weakSelf = self;
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        weakSelf.networkStatus = status;
+        NSString *networkString = [self networkString];
+        [[LXHTTPSessionManager shareManager].manager.requestSerializer setValue:networkString forHTTPHeaderField:@"clientNet"];
+    }];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
  }
 
-- (void)networkChanged:(NSNotification *)notification
-{
-    self.networkStatus = [notification.object integerValue];
-    
-}
 
 
 - (void)settingSessionManager:(void (^)(AFHTTPSessionManager * _Nonnull))handle
