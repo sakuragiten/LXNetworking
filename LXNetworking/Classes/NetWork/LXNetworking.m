@@ -37,13 +37,14 @@ static NSString* const apiVersion = @"2.2.0";
         AFHTTPRequestSerializer *serializer = manager.requestSerializer;
         
         [serializer setValue:config.appVersion forHTTPHeaderField:@"version"];
-        [serializer setValue:apiVersion forHTTPHeaderField:@"apiVersion"];  //???
-        [serializer setValue:config.deviceId forHTTPHeaderField:@"deviceId"];
         
+        [serializer setValue:config.deviceId forHTTPHeaderField:@"deviceId"];
+        [serializer setValue:config.device forHTTPHeaderField:@"deviceName"];
         ///浏览平台(1.安卓 2.IOS 3.PC 4.H5)
         [serializer setValue:@"2" forHTTPHeaderField:@"platform"];
         [serializer setValue:config.UUID forHTTPHeaderField:@"userUuid"];
         [serializer setValue:@"440300" forHTTPHeaderField:@"areaCode"];
+        [serializer setValue:@"APP" forHTTPHeaderField:@"source"];
         //areaCode
     }];
 }

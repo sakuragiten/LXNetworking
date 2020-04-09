@@ -47,11 +47,14 @@ static LXHTTPSessionManager *lx_manager = nil;
 - (void)startNewworkMotoring
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:) name:@"networkStatus" object:nil];
-}
+    NSString *networkString = [self networkString];
+    [[LXHTTPSessionManager shareManager].manager.requestSerializer setValue:networkString forHTTPHeaderField:@"clientNet"];
+ }
 
 - (void)networkChanged:(NSNotification *)notification
 {
     self.networkStatus = [notification.object integerValue];
+    
 }
 
 
@@ -93,7 +96,21 @@ static LXHTTPSessionManager *lx_manager = nil;
 
 
 
-
+- (NSString *)networkString
+{
+    switch (self.networkStatus) {
+        case -1:
+            return @"未知";
+        case 0:
+            return @"无网络";
+        case 1:
+            return @"4G";
+        case 2:
+            return @"WIFI";
+        default:
+            return @"未知";
+    }
+}
 
 
 
