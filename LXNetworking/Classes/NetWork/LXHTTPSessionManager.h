@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 网络状况 */
 @property(nonatomic, assign) NSInteger networkStatus;
 
+/** sessionId */
+@property (nonatomic, copy) NSString *appSid;
+
 
 - (void)settingSessionManager:(void(^)(AFHTTPSessionManager *manager))handle;
 

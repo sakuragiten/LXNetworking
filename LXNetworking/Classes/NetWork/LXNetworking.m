@@ -53,11 +53,12 @@ static NSString* const apiVersion = @"2.2.0";
 + (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)key
 {
     if (value.length == 0 || key.length == 0) return;
-    
+    if ([key isEqualToString:@"appSid"]) {
+        [LXHTTPSessionManager shareManager].appSid = value;
+    }
     [[LXHTTPSessionManager shareManager] settingSessionManager:^(AFHTTPSessionManager * _Nonnull manager) {
         
         AFHTTPRequestSerializer *serializer = manager.requestSerializer;
-        
 //        /440300
         [serializer setValue:value forHTTPHeaderField:key];
     }];
@@ -86,8 +87,9 @@ static NSString* const apiVersion = @"2.2.0";
 
 + (void)requestGetFromCacheWithUrl:(NSString *)url params:(NSDictionary *)params update:(BOOL)update completionHandle:(LXRequestCompletionHandle)completionHandle
 {
-    NSString *cachePath = [[LXURLManager shareManager] absoluteUrlWithRequestUrl:url params:params];
-    NSLog(@"%@", cachePath);
+    NSString *absoluteUrl = [[LXURLManager shareManager] absoluteUrlWithRequestUrl:url params:params];
+    NSString *sessionId = [LXHTTPSessionManager shareManager];
+    NSString *cachePath = params[@"appSid"] ? absoluteUrl : [NSString stringWithFormat:@"%@_%@", absoluteUrl, [LXHTTPSessionManager shareManager].appSid];
     id obj = [[LXHttpCacheManager sharedManager] getCacheDataDictForKey:cachePath];
     BOOL cacheExist = obj;
     if (cacheExist) {
