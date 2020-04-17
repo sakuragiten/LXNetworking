@@ -88,10 +88,9 @@ static NSString* const apiVersion = @"2.2.0";
 + (void)requestGetFromCacheWithUrl:(NSString *)url params:(NSDictionary *)params update:(BOOL)update completionHandle:(LXRequestCompletionHandle)completionHandle
 {
     NSString *absoluteUrl = [[LXURLManager shareManager] absoluteUrlWithRequestUrl:url params:params];
-    NSString *sessionId = [LXHTTPSessionManager shareManager];
     NSString *cachePath = params[@"appSid"] ? absoluteUrl : [NSString stringWithFormat:@"%@_%@", absoluteUrl, [LXHTTPSessionManager shareManager].appSid];
     id obj = [[LXHttpCacheManager sharedManager] getCacheDataDictForKey:cachePath];
-    BOOL cacheExist = obj;
+    BOOL cacheExist = obj != nil;
     if (cacheExist) {
         !completionHandle ? : completionHandle(YES, obj, nil);
     }
@@ -144,20 +143,14 @@ static NSString* const apiVersion = @"2.2.0";
 
 + (void)requestPostWithPath:(NSString *)path params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
 {
-    LXNetWorkingDomainType domainType = LXNetWorkingDomainLouXun;
-    if (![path containsString:lx_domain]) {
-        domainType = LXNetWorkingDomainQF;
-    }
-    [self requestPostWithPath:path domainType:domainType params:params completionHandle:handle];
+
+    [self requestPostWithPath:path params:params constructingBody:nil completionHandle:handle];
 }
 
 + (void)requestPostWithPath:(NSString *)path params:(NSDictionary *)params dataArray:(NSArray *)dataArray completionHandle:(LXRequestCompletionHandle)handle
 {
-    LXNetWorkingDomainType domainType = LXNetWorkingDomainLouXun;
-    if (![path containsString:lx_domain]) {
-        domainType = LXNetWorkingDomainQF;
-    }
-    [self requestWithPath:path domainType:domainType requestType:POST params:params constructingBody:^(id<AFMultipartFormData> formData) {
+
+    [self requestPostWithPath:path params:params constructingBody:^(id<AFMultipartFormData> formData) {
         for (int i = 0; i < dataArray.count; i ++) {
             NSData *data = dataArray[i];
             [formData appendPartWithFileData:data name:@"files" fileName:[NSString stringWithFormat:@"%d.png",i] mimeType:@"image/png"];
@@ -165,9 +158,26 @@ static NSString* const apiVersion = @"2.2.0";
     } completionHandle:handle];
 }
 
-+ (void)requestPostWithPath:(NSString *)path domainType:(LXNetWorkingDomainType)type params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
+
++ (void)requestPostWithPath:(NSString *)path
+                     params:(NSDictionary *)params
+           constructingBody:(void(^)(id<AFMultipartFormData> formData))constructingBody completionHandle:(LXRequestCompletionHandle)handle
 {
-    [self requestWithPath:path domainType:type requestType:POST params:params constructingBody:nil completionHandle:handle];
+    LXNetWorkingDomainType domainType = LXNetWorkingDomainLouXun;
+    if (![path containsString:lx_domain]) {
+        domainType = LXNetWorkingDomainQF;
+    }
+    [self requestPostWithPath:path domainType:domainType params:params constructingBody:constructingBody completionHandle:handle];
+}
+
+
+
++ (void)requestPostWithPath:(NSString *)path
+                 domainType:(LXNetWorkingDomainType)type
+                     params:(NSDictionary *)params
+           constructingBody:(void(^)(id<AFMultipartFormData> formData))constructingBody completionHandle:(LXRequestCompletionHandle)handle
+{
+    [self requestWithPath:path domainType:type requestType:POST params:params constructingBody:constructingBody completionHandle:handle];
 }
 
 

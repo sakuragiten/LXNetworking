@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "LXHTTPSessionManager.h"
 #import "LXURLManager.h"
 
 
@@ -128,17 +129,17 @@ GET 请求 先从缓存拿数据 拿到缓存数据之后 有新数据返回 立
 
 
 /**
- Post 请求
+ Post 请求 上传文件数据
  
  @param path 请求的url
- @param type 域名类型
  @param params 请求参数
+ @param constructingBody 上传文件数据
  @param handle 请求完成的回调
  */
 + (void)requestPostWithPath:(NSString *)path
-                domainType:(LXNetWorkingDomainType)type
-                    params:(NSDictionary *)params
-          completionHandle:(LXRequestCompletionHandle)handle;
+                     params:(NSDictionary *)params
+           constructingBody:(void(^)(id<AFMultipartFormData> formData))constructingBody
+           completionHandle:(LXRequestCompletionHandle)handle;
 
 
 
