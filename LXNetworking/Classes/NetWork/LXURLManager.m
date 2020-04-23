@@ -14,6 +14,7 @@
 @property(nonatomic, copy) NSArray *lx_domains;
 @property(nonatomic, copy) NSArray *xf_domains;
 @property(nonatomic, copy) NSArray *zs_domains;
+@property(nonatomic, copy) NSArray *yd_domains;
 
 @end
 
@@ -49,6 +50,11 @@ static LXURLManager *url_manager = nil;
 - (NSString *)zs_urlStringWithBaseUrl:(NSString *)baseUrl
 {
     return [NSString stringWithFormat:@"%@/%@", zs_domain, baseUrl];
+}
+
+- (NSString *)yd_urlStringWithBaseUrl:(NSString *)baseUrl
+{
+    return [NSString stringWithFormat:@"%@/%@", yd_domain, baseUrl];
 }
 
 - (NSString *)absoluteUrlWithRequestUrl:(NSString *)requestUrl params:(NSDictionary *)params
@@ -105,6 +111,11 @@ static LXURLManager *url_manager = nil;
     return self.zs_domains[e];
 }
 
+- (NSString *)get_yd_domain
+{
+    NSInteger e = self.environment;
+    return self.yd_domains[e];
+}
 
 
 - (NSArray *)lx_domains
@@ -134,6 +145,16 @@ static LXURLManager *url_manager = nil;
     }
     return _zs_domains;
 }
+
+- (NSArray *)yd_domains
+{
+    if (!_yd_domains) {
+        _yd_domains = @[@"https://admin.0du0.com.cn/louxun", @"http://10.1.221.232:9091", @"http://yfb.louxun.com:82", @"http://xf.louxun.com"];
+    }
+    return _yd_domains;
+}
+
+
 
 
 ////接口域名
