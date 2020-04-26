@@ -54,6 +54,9 @@ static LXURLManager *url_manager = nil;
 
 - (NSString *)yd_urlStringWithBaseUrl:(NSString *)baseUrl
 {
+    if ([baseUrl hasPrefix:@":"] || [baseUrl hasPrefix:@"/"]) {
+        return [NSString stringWithFormat:@"%@%@", yd_domain, baseUrl];
+    }
     return [NSString stringWithFormat:@"%@/%@", yd_domain, baseUrl];
 }
 
@@ -149,7 +152,7 @@ static LXURLManager *url_manager = nil;
 - (NSArray *)yd_domains
 {
     if (!_yd_domains) {
-        _yd_domains = @[@"https://admin.0du0.com.cn/louxun", @"http://10.1.221.232:9091", @"http://yfb.louxun.com:82", @"http://xf.louxun.com"];
+        _yd_domains = @[@"https://admin.0du0.com.cn/louxun", @"http://10.1.221.232", @"http://yfb.louxun.com:82", @"http://xf.louxun.com"];
     }
     return _yd_domains;
 }
