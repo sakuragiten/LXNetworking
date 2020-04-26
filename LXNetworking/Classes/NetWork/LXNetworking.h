@@ -139,6 +139,7 @@ GET 请求 先从缓存拿数据 拿到缓存数据之后 有新数据返回 立
 + (void)requestPostWithPath:(NSString *)path
                      params:(NSDictionary *)params
            constructingBody:(void(^)(id<AFMultipartFormData> formData))constructingBody
+                   progress:(void(^)(NSProgress *downloadProgress))progress
            completionHandle:(LXRequestCompletionHandle)handle;
 
 

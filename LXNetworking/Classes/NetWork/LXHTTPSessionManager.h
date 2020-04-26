@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
                 params:(NSDictionary *)params
            requestType:(LXHTTPRequestType)requestType
       constructingBody:(void(^)(id<AFMultipartFormData> formData))block
+              progress:(void(^)(NSProgress *downloadProgress))progress
       completionHandle:(LXRequestSessionHandle)handle;
 
 

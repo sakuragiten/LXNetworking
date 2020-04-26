@@ -62,9 +62,9 @@ static LXHTTPSessionManager *lx_manager = nil;
 }
 
 
-- (void)requestWithUrl:(NSString *)url params:(NSDictionary *)params requestType:(LXHTTPRequestType)requestType constructingBody:(void (^)(id<AFMultipartFormData> _Nonnull))block completionHandle:(LXRequestSessionHandle)handle
+- (void)requestWithUrl:(NSString *)url params:(NSDictionary *)params requestType:(LXHTTPRequestType)requestType constructingBody:(void (^)(id<AFMultipartFormData> _Nonnull))block progress:(void(^)(NSProgress *downloadProgress))progress completionHandle:(LXRequestSessionHandle)handle
 {
-    [self requestWithUrl:url params:params requestType:requestType constructingBodyWithBlock:block progress:nil completionHandle:handle];
+    [self requestWithUrl:url params:params requestType:requestType constructingBodyWithBlock:block progress:progress completionHandle:handle];
 }
 
 - (void)requestWithUrl:(NSString *)url params:(NSDictionary *)params  requestType:(LXHTTPRequestType)requestType constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block progress:(void(^)(NSProgress *downloadProgress))progress completionHandle:(LXRequestSessionHandle)handle

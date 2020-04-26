@@ -130,7 +130,7 @@ static NSString* const apiVersion = @"2.2.0";
 
 + (void)requestGetWithPath:(NSString *)path domainType:(LXNetWorkingDomainType)type params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
 {
-    [self requestWithPath:path domainType:type requestType:GET params:params constructingBody:nil completionHandle:handle];
+    [self requestWithPath:path domainType:type requestType:GET params:params constructingBody:nil progress:nil completionHandle:handle];
 }
 
 
@@ -144,7 +144,7 @@ static NSString* const apiVersion = @"2.2.0";
 + (void)requestPostWithPath:(NSString *)path params:(NSDictionary *)params completionHandle:(LXRequestCompletionHandle)handle
 {
 
-    [self requestPostWithPath:path params:params constructingBody:nil completionHandle:handle];
+    [self requestPostWithPath:path params:params constructingBody:nil progress:nil completionHandle:handle];
 }
 
 + (void)requestPostWithPath:(NSString *)path params:(NSDictionary *)params dataArray:(NSArray *)dataArray completionHandle:(LXRequestCompletionHandle)handle
@@ -155,19 +155,21 @@ static NSString* const apiVersion = @"2.2.0";
             NSData *data = dataArray[i];
             [formData appendPartWithFileData:data name:@"files" fileName:[NSString stringWithFormat:@"%d.png",i] mimeType:@"image/png"];
         }
-    } completionHandle:handle];
+    } progress:nil completionHandle:handle];
 }
 
 
 + (void)requestPostWithPath:(NSString *)path
                      params:(NSDictionary *)params
-           constructingBody:(void(^)(id<AFMultipartFormData> formData))constructingBody completionHandle:(LXRequestCompletionHandle)handle
+           constructingBody:(void(^)(id<AFMultipartFormData> formData))constructingBody
+                   progress:(void(^)(NSProgress *downloadProgress))progress
+           completionHandle:(LXRequestCompletionHandle)handle
 {
     LXNetWorkingDomainType domainType = LXNetWorkingDomainLouXun;
     if (![path containsString:lx_domain]) {
         domainType = LXNetWorkingDomainQF;
     }
-    [self requestPostWithPath:path domainType:domainType params:params constructingBody:constructingBody completionHandle:handle];
+    [self requestPostWithPath:path domainType:domainType params:params constructingBody:constructingBody progress:(void(^)(NSProgress *downloadProgress))progress completionHandle:handle];
 }
 
 
@@ -175,9 +177,11 @@ static NSString* const apiVersion = @"2.2.0";
 + (void)requestPostWithPath:(NSString *)path
                  domainType:(LXNetWorkingDomainType)type
                      params:(NSDictionary *)params
-           constructingBody:(void(^)(id<AFMultipartFormData> formData))constructingBody completionHandle:(LXRequestCompletionHandle)handle
+           constructingBody:(void(^)(id<AFMultipartFormData> formData))constructingBody
+                   progress:(void(^)(NSProgress *downloadProgress))progress
+           completionHandle:(LXRequestCompletionHandle)handle
 {
-    [self requestWithPath:path domainType:type requestType:POST params:params constructingBody:constructingBody completionHandle:handle];
+    [self requestWithPath:path domainType:type requestType:POST params:params constructingBody:constructingBody progress:progress completionHandle:handle];
 }
 
 
@@ -192,7 +196,7 @@ static NSString* const apiVersion = @"2.2.0";
             // 循环拿到所有参数进行拼接
             [formData appendPartWithFormData:[params[key] dataUsingEncoding:NSUTF8StringEncoding] name:key];
         }
-    } completionHandle:handle];
+    } progress:nil completionHandle:handle];
     
 }
 
@@ -202,7 +206,9 @@ static NSString* const apiVersion = @"2.2.0";
              domainType:(LXNetWorkingDomainType)type
             requestType:(LXHTTPRequestType)requestType
                  params:(NSDictionary *)params
-       constructingBody:(void(^)(id<AFMultipartFormData> formData))block completionHandle:(LXRequestCompletionHandle)handle
+       constructingBody:(void(^)(id<AFMultipartFormData> formData))block
+               progress:(void(^)(NSProgress *downloadProgress))progress
+       completionHandle:(LXRequestCompletionHandle)handle
 {
     [[LXHTTPSessionManager shareManager] settingSessionManager:^(AFHTTPSessionManager * _Nonnull manager) {
         
@@ -214,7 +220,7 @@ static NSString* const apiVersion = @"2.2.0";
         
     }];
     NSInteger networkStatus = [LXHTTPSessionManager shareManager].networkStatus;
-    [[LXHTTPSessionManager shareManager] requestWithUrl:path params:params requestType:requestType constructingBody:block completionHandle:^(BOOL success, id responseObj, NSError *error) {
+    [[LXHTTPSessionManager shareManager] requestWithUrl:path params:params requestType:requestType constructingBody:block progress:progress completionHandle:^(BOOL success, id responseObj, NSError *error) {
         NSInteger returnCode = [responseObj[@"code"] integerValue];
         NSString *statusCode = [NSString stringWithFormat:@"%@", [responseObj objectForKey:@"status"]];
         if (success) {
