@@ -215,7 +215,7 @@ static NSString* const apiVersion = @"2.2.0";
         AFHTTPRequestSerializer *serializer = manager.requestSerializer;
         
         [serializer willChangeValueForKey:@"timeoutInterval"];
-        serializer.timeoutInterval = block ? 60 : 10;
+        serializer.timeoutInterval = block ? 600 : 10;
         [serializer didChangeValueForKey:@"timeoutInterval"];
         
     }];
