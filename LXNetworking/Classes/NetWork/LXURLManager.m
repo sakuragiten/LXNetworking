@@ -124,7 +124,7 @@ static LXURLManager *url_manager = nil;
 - (NSArray *)lx_domains
 {
     if (!_lx_domains) {//@"http://39.108.162.76:9090"
-        _lx_domains = @[@"http://10.1.220.5:9090", @"http://692357caf1301953.natapp.cc:6546", @"https://zuul.louxun.com", @"https://zuul.louxun.com"];
+        _lx_domains = @[@"http://10.1.220.5:9090", @"http://10.1.220.5:9090", @"https://zuul.louxun.com", @"https://zuul.louxun.com"];
     }
     return _lx_domains;
 }
@@ -152,7 +152,7 @@ static LXURLManager *url_manager = nil;
 - (NSArray *)yd_domains
 {
     if (!_yd_domains) {
-        _yd_domains = @[@"https://admin.0du0.com.cn/louxun", @"http://10.1.221.232", @"http://yfb.louxun.com:82", @"http://xf.louxun.com"];
+        _yd_domains = @[@"http://10.1.221.232", @"http://10.1.221.232", @"http://yfb.louxun.com:82", @"http://xf.louxun.com"];
     }
     return _yd_domains;
 }
