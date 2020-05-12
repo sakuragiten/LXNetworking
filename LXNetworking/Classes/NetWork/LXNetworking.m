@@ -52,7 +52,7 @@ static NSString* const apiVersion = @"2.2.0";
 
 + (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)key
 {
-    if (value.length == 0 || key.length == 0) return;
+    if (key.length == 0) return;
     if ([key isEqualToString:@"appSid"]) {
         [LXHTTPSessionManager shareManager].appSid = value;
     }
