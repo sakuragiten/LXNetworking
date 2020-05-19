@@ -15,6 +15,7 @@
 @property(nonatomic, copy) NSArray *xf_domains;
 @property(nonatomic, copy) NSArray *zs_domains;
 @property(nonatomic, copy) NSArray *yd_domains;
+@property(nonatomic, copy) NSArray *un_domains;
 
 @end
 
@@ -59,6 +60,12 @@ static LXURLManager *url_manager = nil;
     }
     return [NSString stringWithFormat:@"%@/%@", yd_domain, baseUrl];
 }
+
+- (NSString *)un_urlStringWithBaseUrl:(NSString *)baseUrl
+{
+    return [NSString stringWithFormat:@"%@/%@", un_domain, baseUrl];
+}
+
 
 - (NSString *)absoluteUrlWithRequestUrl:(NSString *)requestUrl params:(NSDictionary *)params
 {
@@ -120,6 +127,12 @@ static LXURLManager *url_manager = nil;
     return self.yd_domains[e];
 }
 
+- (NSString *)get_un_domain
+{
+    NSInteger e = self.environment;
+    return self.un_domains[e];
+}
+
 
 - (NSArray *)lx_domains
 {
@@ -152,11 +165,18 @@ static LXURLManager *url_manager = nil;
 - (NSArray *)yd_domains
 {
     if (!_yd_domains) {
-        _yd_domains = @[@"http://10.1.221.232", @"http://10.1.221.232", @"http://yfb.louxun.com:82", @"http://xf.louxun.com"];
+        _yd_domains = @[@"http://10.1.221.232:9091", @"http://10.1.221.232:9091", @"http://yfb.louxun.com/marketing", @"http://xf.louxun.com/marketing"];
     }
     return _yd_domains;
 }
 
+- (NSArray *)un_domains
+{
+    if (!_un_domains) {
+        _un_domains = @[@"http://10.1.221.232", @"http://10.1.221.232", @"http://yfb.louxun.com", @"http://xf.louxun.com"];
+    }
+    return _un_domains;
+}
 
 
 

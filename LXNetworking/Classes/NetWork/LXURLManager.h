@@ -14,12 +14,13 @@
 #define xf_domain [[LXURLManager shareManager] get_xf_domain]
 #define zs_domain [[LXURLManager shareManager] get_zs_domain]
 #define yd_domain [[LXURLManager shareManager] get_yd_domain]
+#define un_domain [[LXURLManager shareManager] get_un_domain]
 
 #define lx_url(url) [[LXURLManager shareManager] lx_urlStringWithBaseUrl:url]
 #define xf_url(url) [[LXURLManager shareManager] xf_urlStringWithBaseUrl:url]
 #define zs_url(url) [[LXURLManager shareManager] zs_urlStringWithBaseUrl:url]
 #define yd_url(url) [[LXURLManager shareManager] yd_urlStringWithBaseUrl:url]
-
+#define un_url(url) [[LXURLManager shareManager] un_urlStringWithBaseUrl:url]
 
 
 
@@ -39,6 +40,8 @@
 - (NSString *)get_xf_domain;
 - (NSString *)get_zs_domain;
 - (NSString *)get_yd_domain;
+- (NSString *)get_un_domain;
+
 
 - (NSString *)lx_urlStringWithBaseUrl:(NSString *)baseUrl;
 
@@ -47,6 +50,8 @@
 - (NSString *)zs_urlStringWithBaseUrl:(NSString *)baseUrl;
 
 - (NSString *)yd_urlStringWithBaseUrl:(NSString *)baseUrl;
+
+- (NSString *)un_urlStringWithBaseUrl:(NSString *)baseUrl;
 
 /**
  拼凑完整的url 不支持参数嵌套或者包含数组
