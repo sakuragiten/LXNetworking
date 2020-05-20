@@ -147,7 +147,7 @@ static LXURLManager *url_manager = nil;
 {
     if (!_xf_domains) {
 //        _xf_domains = @[@"", @"http://192.168.0.67", @"http://yfb.louxun.com:82", @"http://xf.louxun.com"];
-        _xf_domains = @[@"http://192.168.0.67", @"http://alipaytest46.qfang.com", @"http://yfb.louxun.com", @"http://xf.louxun.com"];
+        _xf_domains = @[@"http://192.168.0.67", @"http://192.168.0.67", @"http://yfb.louxun.com", @"http://xf.louxun.com"];
     }
     
     return _xf_domains;
@@ -157,7 +157,7 @@ static LXURLManager *url_manager = nil;
 {
     if (!_zs_domains) {
 //        _zs_domains = @[@"", @"http://192.168.0.67", @"http://yfb.louxun.com:82", @"http://zs.louxun.com"];
-        _zs_domains = @[@"http://192.168.0.67", @"http://alipaytest46.qfang.com", @"http://yfb.louxun.com", @"http://zs.louxun.com"];
+        _zs_domains = @[@"http://192.168.0.67", @"http://192.168.0.67", @"http://yfb.louxun.com", @"http://zs.louxun.com"];
     }
     return _zs_domains;
 }
